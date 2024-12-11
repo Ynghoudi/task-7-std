@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // для std::sort и std::unique
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 5, 3, 6, 1}; // Исходный массив
+
+    // Сортируем вектор
+    std::sort(numbers.begin(), numbers.end());
+
+    // Удаляем дубликаты
+    auto unique_end = std::unique(numbers.begin(), numbers.end());
+
+    // Изменяем размер вектора, чтобы оставить только уникальные элементы
+    numbers.erase(unique_end, numbers.end());
+
+    // Выводим уникальные элементы
+    std::cout << "Уникальные значения:" << std::endl;
+    for (const int& num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
