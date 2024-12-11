@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> array1 = {1, 3, 5, 7};
+    std::vector<int> array2 = {2, 4, 6, 8}; 
+    std::vector<int> merged;
+
+    size_t i = 0, j = 0;
+
+    while (i < array1.size() && j < array2.size()) {
+        if (array1[i] < array2[j]) {
+            merged.push_back(array1[i]);
+            i++;
+        } else {
+            merged.push_back(array2[j]);
+            j++;
+        }
+    }
+
+    while (i < array1.size()) {
+        merged.push_back(array1[i]);
+        i++;
+    }
+
+
+    while (j < array2.size()) {
+        merged.push_back(array2[j]);
+        j++;
+    }
+
+    std::cout << "Объединенный отсортированный массив: ";
+    for (const int& num : merged) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
